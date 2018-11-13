@@ -38,7 +38,8 @@ sensitive=false,
 comment=[l]{//},
 morecomment=[s]{/*}{*/},
 morestring=[b]',
-morestring=[b]"
+morestring=[b]",
+morestring=[b]`,
 }
 \lstset{style=mystyle, escapeinside=||}
 \title{Javascript}
@@ -259,8 +260,117 @@ Recordad que en Javascript, \textbf{todos} los números son de punto flotante. E
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{String}
+\begin{frame}[fragile]{Strings}
 Un \textbf{String} es una cadena de caracteres usada para representar texto.
-    
+
+Puedes usar single quotes ('), double quotes (") o backticks (`) para delimitar un string, aunque estos últimos son un caso especial que ya mencionaremos.
+
+\begin{lstlisting}[language=JavaScript]
+let singleQuotes = 'Soy una cadena de caracteres!';
+let doubleQuotes = "Yo tambien!";
+let backTicks = `Y yo!`;
+
+typeof(singleQuotes); // "string"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Strings}
+En caso de que querais utilizar alguno de los caracteres delimitantes en una string, teneis dos formas de hacerlo:
+\begin{itemize}
+\item Utilizar un delimitador distinto: 
+\begin{lstlisting}[language=JavaScript]
+let stringConSingleQuotes = "Uso ' y `!"
+
+let stringConDoubleQuotes = 'Y yo uso " y `!'
+
+let stringConAmbos = `Tengo " y ' sin problemas!`
+\end{lstlisting}
+\item Escapar el caracter con \textbackslash:
+\begin{lstlisting}[language=JavaScript]
+let soloUsoDoubles = "Esto \" funciona!"
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Strings: Concatenación}
+Las strings solo tienen un operador: concatenación (+)
+\begin{lstlisting}[language=JavaScript]
+let nombre = "Alberto";
+let apellido = "Gonzalez";
+
+let nombreConApellido = nombre + " " + apellido;
+// nombreConApellido = "Alberto Gonzalez"
+\end{lstlisting}
+\begin{block}{Cuidado! No confundáis los operadores}
+Tanto el operador de concatenación como el de adición utilizan el mismo símbolo (+), pero son dos operadores completamente distintos. Ya entraremos en detalle acerca de esto mas adelante.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Strings: template strings}
+En caso de que quieras tener una string con valores de variables, usar template strings puede ser muy util para facilitar la tarea.
+
+Esto solo funciona si el string usa backticks como delimitador (`)\bigskip
+
+\begin{lstlisting}[language=JavaScript]
+let nombre = "Alberto";
+let apellido = "Gonzalez";
+
+let nombreConApellido = `${nombre} ${apellido}`;
+// nombreConApellido = "Alberto Gonzalez"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Boolean}
+Un \textbf{Boolean} (Booleano) es un tipo de dato que solo tiene dos valores: true (verdadero) o false (falso).
+
+\begin{lstlisting}[language=JavaScript]
+let verdadero = true;
+let falso = false;
+
+typeof(verdadero); // "boolean"
+typeof(falso); // "boolean"
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Null}
+\textbf{Null} es un tipo de dato que solo tiene un valor: Null.
+
+Null se usa para indicar que algo no tiene ningún valor; que esta vacío.
+
+\begin{lstlisting}[language=JavaScript]
+let vacio = null;
+
+typeof(vacio); // "object" (por motivos de legacy)
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Undefined}
+\textbf{Undefined} es un tipo de dato que solo tiene un valor: undefined.
+
+Undefined se usa para indicar que algo no tiene ningun valor asignado.
+
+\begin{lstlisting}[language=JavaScript]
+let indefinido;
+
+typeof(indefinido); // "undefined"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Diferencia entre null y undefined}
+null y undefined son dos cosas distintas, pese a parecer identicas. Aqui teneis un ejemplo visual.
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/undefinednull.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Diferencia entre null y undefined}
+\begin{itemize}
+    \item Undefined indica que algo simplemente no esta ahi, y es el valor que toma cualquier variable por defecto.
+    \item Null indica explicitamente que el valor de algo es nulo, y has de asignarlo explicitamente a algo.
+\end{itemize}
 \end{frame}
 \end{document}

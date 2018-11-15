@@ -369,8 +369,40 @@ null y undefined son dos cosas distintas, pese a parecer identicas. Aqui teneis 
 
 \begin{frame}{Diferencia entre null y undefined}
 \begin{itemize}
-    \item Undefined indica que algo simplemente no esta ahi, y es el valor que toma cualquier variable por defecto.
-    \item Null indica explicitamente que el valor de algo es nulo, y has de asignarlo explicitamente a algo.
+    \item Undefined indica que algo simplemente no esta ahí, y es el valor que toma cualquier variable por defecto.
+    \item Null indica que el valor de algo es nulo, y has de asignarlo explícitamente a algo.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Conversiones implícitas}
+Javascript hace conversiones entre tipos por detras cuando trabajas con tipos distintos.
+
+\begin{lstlisting}[language=JavaScript]
+1 + "10" // "110"
+1 + 10 // 11
+"1" - 10 // "-9"
+3 - "Tomato"  // NaN
+"b"+"a"+(+"a")+"a" // "baNaNa"
+1 / 0 + " and beyond!" // "Infinity and beyond!"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Conversiones implícitas}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/excuse_me.jpg}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Conversiones implícitas}
+Si estas sumando algo:
+\begin{itemize}
+    \item Si alguno de los operandos es una string, el otro se convierte en string y se concatenan
+\end{itemize}
+
+Si estas restando, multiplicando o dividiendo algo:
+\begin{itemize}
+    \item Si alguno de los operandos es una string, se intenta convertir a numero (En caso de que no se pueda, se convierte en NaN)
 \end{itemize}
 \end{frame}
 \end{document}

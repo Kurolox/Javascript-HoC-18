@@ -31,7 +31,7 @@
 }
 
 \lstdefinelanguage{JavaScript}{
-keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, let, if, in, while, do, else, case, break},
+keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, let, if, in, while, do, else, case, break, default},
 ndkeywords={class, export, boolean, throw, implements, import, this},
 ndkeywordstyle=\color{darkgray}\bfseries,
 sensitive=false,
@@ -333,6 +333,63 @@ typeof(falso); // "boolean"
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}{Boolean: Operadores booleanos}
+Hay varios operadores booleanos: los operadores de comparación. Estos operadores comparan dos argumentos y siempre devuelven un booleano. \bigskip
+
+\begin{columns}[t, onlytextwidth]
+            \column{0.5\textwidth}
+                \textbf{Comparadores normales}
+                \begin{itemize}
+                    \item Igualdad (==)
+                    \item No igualdad (!=)
+                    \item Mayor que (>)
+                    \item Menor que (<)
+                    \item Mayor o igual que (>=)
+                    \item Menor o igual que (<=)
+                \end{itemize}
+            
+            \column{0.5\textwidth}
+                \textbf{Comparadores estrictos}
+                \begin{itemize}
+                    \item Igualdad (===)
+                    \item No igualdad (!==)
+                \end{itemize}
+        \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Boolean: Operadores booleanos}
+\begin{lstlisting}[language=JavaScript]
+4 == 7; // false
+2 != 5; // true
+
+3 > 4; // false
+3 < 4; // true
+
+2 > 2; // false
+2 >= 2; // true
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Boolean: Operadores booleanos}
+Javascript hace varias conversiones de tipos por detrás cuando trabajas con tipos distintos.
+\begin{lstlisting}[language=JavaScript]
+3 > "5" // 3 > 5, false
+4 == "4" // 4 == 4, true
+\end{lstlisting}
+
+Para evitar conversiones implícitas, utiliza los comparadores estrictos.
+\begin{lstlisting}[language=JavaScript]
+4 == "4" // 4 == 4, true
+4 === "4" // false
+
+2 != "2" // 2 != 2, false
+2 !== "2" // true
+\end{lstlisting}
+Siempre que puedas, utiliza el comparador estricto para evitar problemas.
+
+
+\end{frame}
+
 \begin{frame}[fragile]{Null}
 \textbf{Null} es un tipo de dato que solo tiene un valor: Null.
 
@@ -402,7 +459,174 @@ Si estas sumando algo:
 
 Si estas restando, multiplicando o dividiendo algo:
 \begin{itemize}
-    \item Si alguno de los operandos es una string, se intenta convertir a numero (En caso de que no se pueda, se convierte en NaN)
+    \item Si alguno de los operandos es una string, el otro se intenta convertir a numero (En caso de que no se pueda, se convierte en NaN)
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Tipos de datos no primitivos}
+Solo hay un tipo de dato no primitivo: El tipo Object (objeto)
+
+Un object es una colección de propiedades. Se definen utilizando llaves: \{ y \}
+
+Cada propiedad tiene una "llave" (identificador) asignada, siguiendo el formato llave : propiedad, y se separan con comas unos pares llave : propiedad de otros.
+\end{frame}
+
+\begin{frame}[fragile]{Objects}
+\begin{lstlisting}[language=JavaScript]
+cesta = {"manzanas" : 4, "color" : "rojo"}
+
+cesta.manzanas // 4
+cesta.color // "rojo"
+cesta.precio // undefined
+
+cesta.manzanas-- // cesta.manzanas = 3
+cesta.precio = 4.95
+
+cesta // {manzanas: 3, color: "rojo", precio: 4.95}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Arrays}
+
+Un \textbf{array} es un tipo de objeto que te permite guardar múltiples valores distintos en una sola variable.
+
+Una array se define con un par de corchetes [], separando los elementos con comas.
+
+\begin{lstlisting}[language=JavaScript]
+let miArray = [1, "manzana", 9, true];
+typeof(miArray); // "object"
+\end{lstlisting}
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Arrays}
+Puedes acceder a un elemento especifico de un array especificando su indice (numeracion basada en 0)
+
+\begin{lstlisting}[language=JavaScript]
+let miArray = [1, "manzana", 9, true];
+
+miArray[0]; // 1
+miArray[1]; // "manzana"
+miArray[3]; // true
+\end{lstlisting} 
+\end{frame}
+
+
+\begin{frame}{Estructuras de control}
+Javascript tiene las siguientes estructuras de control.
+\begin{itemize}
+    \item if / else if / else
+    \item while / do while
+    \item for
+    \item switch
+    \item for each
+    \item with
+\end{itemize}
+\end{frame}
+
+\begin{frame}{If / Else if / Else}
+La sentencia \textbf{if} te permite ejecutar una parte del código solo si una condición se cumple de antemano. 
+
+Una condicion es cualquier sentencia que devuelva un valor booleano, o pueda convertirse en uno.
+
+Si no se cumple dicha condición, puedes comprobar por condiciones adicionales usando \textbf{else if}, o puedes ejecutar codigo si no se cumple ninguna condición usando \textbf{else}.
+\end{frame}
+
+\begin{frame}[fragile]{If / Else if / Else}
+\begin{lstlisting}[language=JavaScript]
+let numero = 5;
+
+if (numero < 3) {
+    console.log("el numero es menor que 3.");
+} else if (numero < 10) {
+    console.log("el numero esta entre 3 y 9.");
+} else {
+    console.log("el numero es mayor a 9.");
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{While / Do while}
+La sentencia \textbf{while} te permite repetir la ejecucion de una parte del codigo mientras se cumpla una condicion.
+
+La sintaxis de un bucle while es la siguiente:
+
+\textbf{while (condicion) \{ código \} }
+
+Una sentencia \textbf{do... while} es identica a un while, pero esta garantiza que el codigo se ejecutara al menos una vez, incluso si la condicion no se cumple la primera vez.
+
+\textbf{do \{ código \} while (condicion) }
+
+\end{frame}
+
+\begin{frame}[fragile]{While / Do while}
+\begin{lstlisting}[language=JavaScript]
+let contador = 5;
+
+while(contador < 13){
+    console.log(contador++);
+}
+
+do {
+console.log("Condicion imposible!");
+} while (contador < 0)   
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{For}
+La sentencia \textbf{for} te permite repetir la ejecucion de una parte del codigo un numero determinado de veces.
+
+La sintaxis de un bucle for es la siguiente:
+
+\textbf{for (contador; condición; paso) \{ código \} }
+
+El contador es cualquier variable que se use para llevar la cuenta del numero de iteraciones del bucle.
+
+La condición es que se ha de cumplir para que el bucle siga repitiéndose: Cuando la condición deja de cumplirse, el bucle para.
+
+El paso indica de que manera quieres modificar el contador tras cada iteración del bucle.
+\end{frame}
+
+\begin{frame}[fragile]{For}
+\begin{lstlisting}[language=JavaScript]
+for(contador = 10; contador > 0; contador--){
+    console.log("Lanzamiento en " + contador);
+}
+console.log("Despegue!");
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Switch}
+La sentencia \textbf{switch} te permite evaluar una expresión, y ejecutar un determinado código en base a dicha expresión.
+
+La sintaxis de una sentencia switch es la siguiente:
+
+\begin{lstlisting}[language=JavaScript]
+switch (expresion) {
+    case (condicion): 
+        code
+        break;
+    case (condicion):
+        code
+        break;
+    default:
+        code
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Switch}
+\begin{lstlisting}[language=JavaScript]
+let fruta = "manzana"
+switch (fruta) {
+    case platano: 
+        console.log("Me quedan 3 platanos.")
+        break;
+    case manzana:
+        console.log("Me quedan 9 manzanas.")
+        break;
+    default:
+        console.log("No me queda ninguna " + fruta)
+}\end{lstlisting}
 \end{frame}
 \end{document}

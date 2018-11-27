@@ -31,7 +31,7 @@
 }
 
 \lstdefinelanguage{JavaScript}{
-keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, let, if, in, while, do, else, case, break, default},
+keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, let, if, in, while, do, else, case, break, default, for, of},
 ndkeywords={class, export, boolean, throw, implements, import, this},
 ndkeywordstyle=\color{darkgray}\bfseries,
 sensitive=false,
@@ -57,13 +57,13 @@ morestring=[b]`,
     \setlength{\parskip}{\baselineskip}%
     \setlength{\parindent}{0pt}%
 
-\begin{frame}{Que es Javascript}
+\begin{frame}{Qué es Javascript}
     	\pause
         Javascript (también llamado JS) es un lenguaje de programación originado en 1995.\pause
 
     	Es conocido principalmente por su uso en desarrollo web, permitiendo que un usuario pueda interaccionar con una pagina web.
 \end{frame}
-\begin{frame}{Que es Javascript}
+\begin{frame}{Qué es Javascript}
         Javascript es un lenguaje... \bigskip
         \begin{itemize}
             \item interpretado\pause
@@ -74,7 +74,7 @@ morestring=[b]`,
     
 \begin{frame}{Javascript es interpretado}
         \pause
-        Un lenguaje \textbf{interpretado} es aquel que es traducido a código maquina a medida que se ejecuta, mientras que un lenguaje \textbf{compilado} es aquel que se traduce a código maquina antes de ejecutarse.\pause
+        Un lenguaje \textbf{interpretado} es aquel que es traducido a código máquina a medida que se ejecuta, mientras que un lenguaje \textbf{compilado} es aquel que se traduce a código máquina antes de ejecutarse.\pause
         \centering
         
         Javascript es un lenguaje interpretado.
@@ -82,7 +82,7 @@ morestring=[b]`,
     
 \begin{frame}{Javascript usa tipado débil}
         \pause
-        Un lenguaje que usa \textbf{tipado débil} no necesita declarar el tipo de sus variables explicitamente, mientras que un lenguaje que usa \textbf{tipado fuerte} necesita declarar el tipo que va a almacenar una variable de antemano.\pause
+        Un lenguaje que usa \textbf{tipado débil} no necesita declarar el tipo de sus variables explícitamente, mientras que un lenguaje que usa \textbf{tipado fuerte} necesita declarar el tipo que va a almacenar una variable de antemano.\pause
         \centering
         
         Javascript utiliza tipado débil.
@@ -107,7 +107,7 @@ morestring=[b]`,
         \lstinputlisting[language=JavaScript]{code_snippets/example.js}\centering
 \end{frame}
 
-\begin{frame}{Como ejecutar Javascript}\pause
+\begin{frame}{Cómo ejecutar Javascript}\pause
     Hay varias maneras de ejecutar Javascript. La mas accesible es desde vuestro navegador de preferencia (Firefox, Chrome...)\pause
     
     Abrid las herramientas de desarrollador (F12), y buscad la opción de consola.
@@ -134,7 +134,38 @@ ECMAScript se va actualizando con el tiempo con nuevas funcionalidades, y versio
 \begin{frame}{ECMAScript}
 En este taller, todo lo que os enseñe esta basado en ECMAScript 6 (También llamado ECMAScript 2015, o ES6) y esta soportado por todos los navegadores actuales.
 
-En caso de que tengáis que soportar navegadores antiguos (Internet Explorer 11 y menor, por ejemplo), algunas partes de este taller no funcionaran.
+En caso de que tengáis que soportar navegadores antiguos (Internet Explorer 11 y menor, por ejemplo), algunas partes de este taller no funcionarán.
+\end{frame}
+
+\begin{frame}[fragile]{Variables y constantes}
+Hay varias maneras de crear variables en JavaScript:
+\begin{itemize}
+    \item {\verb|var|} para declarar una variable 
+    \item {\verb|let|} para declarar una variable
+    \item {\verb|const|} para declarar una constante
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Var y let}
+La diferencia entre {\verb|var|} y {\verb|let|} es simple.
+\begin{itemize}
+    \item {\verb|var|} define las variables a un nivel funcional (pertenecen a la función en la que se definen o, en caso de que no pertenezcan a ninguna, son globales)
+    
+    \item {\verb|let|} define las funciones a un nivel de bloque (pertenecen al bloque en el que se definen o, en caso de que no pertenezcan a ninguno, son globales)
+\end{itemize}
+
+Mostraremos ejemplos de esto mas adelante, cuando entendáis la sintaxis de JavaScript. En caso de duda, utilizad {\verb|let|} para evitar posibles problemas.
+\end{frame}
+
+\begin{frame}[fragile]{Const}
+{\verb|const|} se utiliza para definir constantes. Esto implica que en la mayoría de los casos, una variable constante:
+\begin{itemize}
+    \item no puede ser reasignada
+    \item no puede ser modificado*
+\end{itemize}
+
+Intentar hacer cualquiera de estas cosas a una constante va a resultar en un error.
 \end{frame}
 
 \begin{frame}{Tipos de datos}
@@ -165,19 +196,19 @@ Un \textbf{number} (Numero) es un tipo de dato numérico.
 
 A diferencia de otros lenguajes, no hay distintos tipos dependiendo de si el numero es decimal o no, o de cuanto espacio se quiera reservar (short, int, long, double, float...)
 
-En Javascript, solo hay un unico tipo, number. Este es similar a un double en otros lenguajes de programacion (64 bits, punto flotante)
+En Javascript, solo hay un único tipo, number. Este es similar a un double en otros lenguajes de programación (64 bits, punto flotante)
 \end{frame}
 
 \begin{frame}[fragile]{Numbers}
 \begin{lstlisting}[language=JavaScript]
-let numero = 42;
-typeof(numero); // "number"|\pause|
+let meaningOfLife = 42;
+typeof(meaningOfLife); // "number"|\pause|
 
-let comaflotante = 3.141592;
-typeof(comaflotante); // "number"|\pause|
+let floatingPoint = 3.141592;
+typeof(floatingPoint); // "number"|\pause|
 
 // Tambien puedes utilizar notacion cientifica
-let notacionExp = 123e5; // 123 * (10^5) = 12300000|\pause|
+let exponentialNotation = 123e5; // 123 * (10^5) = 12300000|\pause|
 
 // O hexadecimal (0x) y octal (0)
 let hexadecimalNum = 0xFF; // 255
@@ -205,11 +236,11 @@ let divisionByTomato = 4 / "tomato";|\pause| // "NaN"
 \end{frame}
 
 \begin{frame}{Numbers: Casos especiales}
-NaN es un numero especial. Como habréis notado, Javascript no suele devolver errores ante casos extraños.
+NaN es un número especial. Como habréis notado, Javascript no suele devolver errores ante casos extraños.
 
 Ya entraremos en detalle acerca de como Javascript maneja estos casos, pero por ahora centrémonos en NaN.\pause
 
-NaN (Not a Number; No es un número) es un valor numérico que Javascript devuelve siempre que no encuentre un valor legal en una operacion aritmetica (como una string, con excepciones que ya mencionaremos)
+NaN (Not a Number; No es un número) es un valor numérico que Javascript devuelve siempre que no encuentre un valor legal en una operación aritmética (como una string, con excepciones que ya mencionaremos)
 \end{frame}
 
 \begin{frame}[fragile]{Numbers: Operaciones}
@@ -217,19 +248,19 @@ NaN (Not a Number; No es un número) es un valor numérico que Javascript devuel
 let num1 = 9, num2 = 3;
 
 // Operador de suma: +
-let sumaNums = num1 + num2; // 12
+let sumNums = num1 + num2; // 12
 
 // Operador de resta: -
-let restaNums = num1 - num2; // 6
+let substractNums = num1 - num2; // 6
 
 // Operador de producto: *
-let productoNums = num1 * num2; // 27
+let multiplyNums = num1 * num2; // 27
 
 // Operador de division: /
-let divisionNums = num1 / num2; // 3
+let divideNums = num1 / num2; // 3
 
 // Operador de resto: %
-let restoNums = num1 % num2; // 0
+let reminderOfNums = num1 % num2; // 0
 \end{lstlisting}
 \end{frame}
 
@@ -275,19 +306,19 @@ typeof(singleQuotes); // "string"
 \end{frame}
 
 \begin{frame}[fragile]{Strings}
-En caso de que querais utilizar alguno de los caracteres delimitantes en una string, teneis dos formas de hacerlo:
+En caso de que queráis utilizar alguno de los caracteres delimitantes en una string, tenéis dos formas de hacerlo:
 \begin{itemize}
 \item Utilizar un delimitador distinto: 
 \begin{lstlisting}[language=JavaScript]
-let stringConSingleQuotes = "Uso ' y `!"
+let doubleQuoteDelimited = "Uso ' y `!"
 
-let stringConDoubleQuotes = 'Y yo uso " y `!'
+let singleQuoteDelimited = 'Y yo uso " y `!'
 
-let stringConAmbos = `Tengo " y ' sin problemas!`
+let backtickDelimited = `Tengo " y ' sin problemas!`
 \end{lstlisting}
 \item Escapar el caracter con \textbackslash:
 \begin{lstlisting}[language=JavaScript]
-let soloUsoDoubles = "Esto \" funciona!"
+let stringWithEscapedChar = "Esto \" funciona!"
 \end{lstlisting}
 \end{itemize}
 \end{frame}
@@ -295,11 +326,11 @@ let soloUsoDoubles = "Esto \" funciona!"
 \begin{frame}[fragile]{Strings: Concatenación}
 Las strings solo tienen un operador: concatenación (+)
 \begin{lstlisting}[language=JavaScript]
-let nombre = "Alberto";
-let apellido = "Gonzalez";
+let firstName = "Alberto";
+let lastName = "Gonzalez";
 
-let nombreConApellido = nombre + " " + apellido;
-// nombreConApellido = "Alberto Gonzalez"
+let fullName = firstName + " " + lastName;
+// fullName = "Alberto Gonzalez"
 \end{lstlisting}
 \begin{block}{Cuidado! No confundáis los operadores}
 Tanto el operador de concatenación como el de adición utilizan el mismo símbolo (+), pero son dos operadores completamente distintos. Ya entraremos en detalle acerca de esto mas adelante.
@@ -307,28 +338,28 @@ Tanto el operador de concatenación como el de adición utilizan el mismo símbo
 \end{frame}
 
 \begin{frame}[fragile]{Strings: template strings}
-En caso de que quieras tener una string con valores de variables, usar template strings puede ser muy util para facilitar la tarea.
+En caso de que quieras tener un string con valores de variables, usar template strings puede ser muy útil para facilitar la tarea.
 
 Esto solo funciona si el string usa backticks como delimitador (`)\bigskip
 
 \begin{lstlisting}[language=JavaScript]
-let nombre = "Alberto";
-let apellido = "Gonzalez";
+let firstName = "Alberto";
+let lastName = "Gonzalez";
 
-let nombreConApellido = `${nombre} ${apellido}`;
-// nombreConApellido = "Alberto Gonzalez"
+let fullName = `${firstName} ${lastName}`;
+// fullName = "Alberto Gonzalez"
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Boolean}
-Un \textbf{Boolean} (Booleano) es un tipo de dato que solo tiene dos valores: true (verdadero) o false (falso).
+Un \textbf{Boolean} (Booleano) es un tipo de dato que sólo tiene dos valores: true (verdadero) o false (falso).
 
 \begin{lstlisting}[language=JavaScript]
-let verdadero = true;
-let falso = false;
+let webDevRocks = true;
+let javascriptIsGarbage = false;
 
-typeof(verdadero); // "boolean"
-typeof(falso); // "boolean"
+typeof(webDevRocks); // "boolean"
+typeof(javascriptIsGarbage); // "boolean"
 
 \end{lstlisting}
 \end{frame}
@@ -391,32 +422,32 @@ Siempre que puedas, utiliza el comparador estricto para evitar problemas.
 \end{frame}
 
 \begin{frame}[fragile]{Null}
-\textbf{Null} es un tipo de dato que solo tiene un valor: Null.
+\textbf{null} es un tipo de dato que sólo tiene un valor: null.
 
-Null se usa para indicar que algo no tiene ningún valor; que esta vacío.
+null se usa para indicar que algo no tiene ningún valor; que esta vacío.
 
 \begin{lstlisting}[language=JavaScript]
-let vacio = null;
+let void = null;
 
-typeof(vacio); // "object" (por motivos de legacy)
+typeof(void); // "object" (por motivos de legacy)
 
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Undefined}
-\textbf{Undefined} es un tipo de dato que solo tiene un valor: undefined.
+\textbf{undefined} es un tipo de dato que solo tiene un valor: undefined.
 
-Undefined se usa para indicar que algo no tiene ningun valor asignado.
+Undefined se usa para indicar que algo no tiene ningún valor asignado.
 
 \begin{lstlisting}[language=JavaScript]
-let indefinido;
+let something;
 
-typeof(indefinido); // "undefined"
+typeof(something); // "undefined"
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}{Diferencia entre null y undefined}
-null y undefined son dos cosas distintas, pese a parecer identicas. Aqui teneis un ejemplo visual.
+null y undefined son dos cosas distintas, pese a parecer idénticas. Aquí tenéis un ejemplo visual.
 
     \begin{figure}
         \centering
@@ -432,7 +463,7 @@ null y undefined son dos cosas distintas, pese a parecer identicas. Aqui teneis 
 \end{frame}
 
 \begin{frame}[fragile]{Conversiones implícitas}
-Javascript hace conversiones entre tipos por detras cuando trabajas con tipos distintos.
+Javascript hace conversiones entre tipos por detrás cuando trabajas con tipos distintos.
 
 \begin{lstlisting}[language=JavaScript]
 1 + "10" // "110"
@@ -452,37 +483,37 @@ Javascript hace conversiones entre tipos por detras cuando trabajas con tipos di
 \end{frame}
 
 \begin{frame}{Conversiones implícitas}
-Si estas sumando algo:
+Si estás sumando algo:
 \begin{itemize}
     \item Si alguno de los operandos es una string, el otro se convierte en string y se concatenan
 \end{itemize}
 
 Si estas restando, multiplicando o dividiendo algo:
 \begin{itemize}
-    \item Si alguno de los operandos es una string, el otro se intenta convertir a numero (En caso de que no se pueda, se convierte en NaN)
+    \item Si alguno de los operandos es una string, el otro se intenta convertir a número (En caso de que no se pueda, se convierte en NaN)
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Tipos de datos no primitivos}
-Solo hay un tipo de dato no primitivo: El tipo Object (objeto)
+Sólo hay un tipo de dato no primitivo: El tipo Object (objeto)
 
 Un object es una colección de propiedades. Se definen utilizando llaves: \{ y \}
 
-Cada propiedad tiene una "llave" (identificador) asignada, siguiendo el formato llave : propiedad, y se separan con comas unos pares llave : propiedad de otros.
+Cada propiedad tiene una "llave" (identificador) asignada, siguiendo el formato \textbf{\textit{llave : propiedad}}, y se separan con comas unos pares llave : propiedad de otros.
 \end{frame}
 
 \begin{frame}[fragile]{Objects}
 \begin{lstlisting}[language=JavaScript]
-cesta = {"manzanas" : 4, "color" : "rojo"}
+market_stock = {"apples" : 4, "color" : "red"}
 
-cesta.manzanas // 4
-cesta.color // "rojo"
-cesta.precio // undefined
+market_stock.apples // 4
+market_stock.color // "red"
+market_stock.precio // undefined
 
-cesta.manzanas-- // cesta.manzanas = 3
-cesta.precio = 4.95
+market_stock.apples-- // market_stock.apples = 3
+market_stock.price = 4.95
 
-cesta // {manzanas: 3, color: "rojo", precio: 4.95}
+market_stock // {apples: 3, color: "red", price: 4.95}
 \end{lstlisting}
 \end{frame}
 
@@ -493,22 +524,22 @@ Un \textbf{array} es un tipo de objeto que te permite guardar múltiples valores
 Una array se define con un par de corchetes [], separando los elementos con comas.
 
 \begin{lstlisting}[language=JavaScript]
-let miArray = [1, "manzana", 9, true];
-typeof(miArray); // "object"
+let someArray = [1, "manzana", 9, true];
+typeof(someArray); // "object"
 \end{lstlisting}
 
 
 \end{frame}
 
 \begin{frame}[fragile]{Arrays}
-Puedes acceder a un elemento especifico de un array especificando su indice (numeracion basada en 0)
+Puedes acceder a un elemento específico de un array especificando su índice (numeración basada en 0)
 
 \begin{lstlisting}[language=JavaScript]
-let miArray = [1, "manzana", 9, true];
+let someArray = [1, "manzana", 9, true];
 
-miArray[0]; // 1
-miArray[1]; // "manzana"
-miArray[3]; // true
+someArray[0]; // 1
+someArray[1]; // "manzana"
+someArray[3]; // true
 \end{lstlisting} 
 \end{frame}
 
@@ -526,20 +557,20 @@ Javascript tiene las siguientes estructuras de control.
 \end{frame}
 
 \begin{frame}{If / Else if / Else}
-La sentencia \textbf{if} te permite ejecutar una parte del código solo si una condición se cumple de antemano. 
+La sentencia \textbf{if} te permite ejecutar una parte del código sólo si una condición se cumple de antemano. 
 
-Una condicion es cualquier sentencia que devuelva un valor booleano, o pueda convertirse en uno.
+Una condición es cualquier sentencia que devuelva un valor booleano, o pueda convertirse en uno.
 
-Si no se cumple dicha condición, puedes comprobar por condiciones adicionales usando \textbf{else if}, o puedes ejecutar codigo si no se cumple ninguna condición usando \textbf{else}.
+Si no se cumple dicha condición, puedes comprobar por condiciones adicionales usando \textbf{else if}, o puedes ejecutar código si no se cumple ninguna condición usando \textbf{else}.
 \end{frame}
 
 \begin{frame}[fragile]{If / Else if / Else}
 \begin{lstlisting}[language=JavaScript]
-let numero = 5;
+let someNumber = 5;
 
-if (numero < 3) {
+if (someNumber < 3) {
     console.log("el numero es menor que 3.");
-} else if (numero < 10) {
+} else if (someNumber < 10) {
     console.log("el numero esta entre 3 y 9.");
 } else {
     console.log("el numero es mayor a 9.");
@@ -548,13 +579,13 @@ if (numero < 3) {
 \end{frame}
 
 \begin{frame}{While / Do while}
-La sentencia \textbf{while} te permite repetir la ejecucion de una parte del codigo mientras se cumpla una condicion.
+La sentencia \textbf{while} te permite repetir la ejecución de una parte del código mientras se cumpla una condición.
 
 La sintaxis de un bucle while es la siguiente:
 
 \textbf{while (condicion) \{ código \} }
 
-Una sentencia \textbf{do... while} es identica a un while, pero esta garantiza que el codigo se ejecutara al menos una vez, incluso si la condicion no se cumple la primera vez.
+Una sentencia \textbf{do... while} es idéntica a un while, pero esta garantiza que el código se ejecutara al menos una vez, incluso si la condición no se cumple la primera vez.
 
 \textbf{do \{ código \} while (condicion) }
 
@@ -562,20 +593,20 @@ Una sentencia \textbf{do... while} es identica a un while, pero esta garantiza q
 
 \begin{frame}[fragile]{While / Do while}
 \begin{lstlisting}[language=JavaScript]
-let contador = 5;
+let counter = 5;
 
-while(contador < 13){
-    console.log(contador++);
+while(counter < 13){
+    console.log(counter++);
 }
 
 do {
-console.log("Condicion imposible!");
-} while (contador < 0)   
+    console.log("Condicion imposible!");
+} while (counter < 0)   
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}{For}
-La sentencia \textbf{for} te permite repetir la ejecucion de una parte del codigo un numero determinado de veces.
+La sentencia \textbf{for} te permite repetir la ejecución de una parte del código un numero determinado de veces.
 
 La sintaxis de un bucle for es la siguiente:
 
@@ -590,8 +621,8 @@ El paso indica de que manera quieres modificar el contador tras cada iteración 
 
 \begin{frame}[fragile]{For}
 \begin{lstlisting}[language=JavaScript]
-for(contador = 10; contador > 0; contador--){
-    console.log("Lanzamiento en " + contador);
+for(counter = 10; counter > 0; counter--){
+    console.log("Lanzamiento en " + counter);
 }
 console.log("Despegue!");
 \end{lstlisting}
@@ -617,16 +648,168 @@ switch (expresion) {
 
 \begin{frame}[fragile]{Switch}
 \begin{lstlisting}[language=JavaScript]
-let fruta = "manzana"
-switch (fruta) {
-    case platano: 
+let fruit = "apple"
+switch (fruit) {
+    case banana: 
         console.log("Me quedan 3 platanos.")
         break;
-    case manzana:
+    case apple:
         console.log("Me quedan 9 manzanas.")
         break;
     default:
         console.log("No me queda ninguna " + fruta)
 }\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{for each}
+En JavaScript existen diferentes tipos de bucles \textbf{for each}, cada uno de los cuales tiene un comportamiento diferente:
+\begin{itemize}
+     \item for...of
+    \item for...in
+   
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{for...of}
+La sentencia \textbf{for...of} crea un bucle que itera a través de los elementos de objetos iterables (incluyendo Array), ejecutando las sentencias de cada iteración con el valor del elemento que corresponda.\newline
+
+La sintaxis de un bucle \textbf{for...of} es la siguiente:
+\begin{lstlisting}[language=JavaScript]
+for (variable of iterable) {
+  code
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{for...of}
+\begin{lstlisting}[language=JavaScript]
+let iterable = [10, 20, 30]; //Array de numeros
+
+for (let valor of iterable) {
+  valor += 1;
+  console.log(valor);
+}
+// 11
+// 21
+// 31
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{for...in}
+La sentencia \textbf{for...in} itera sobre todos los nombres de las propiedades de un objeto, en un \textbf{orden arbitrario}. Para cada uno de los elementos, se ejecuta la sentencia especificada.
+
+La sintaxis de un bucle \textbf{for...in} es:
+\begin{lstlisting}[language=JavaScript]
+for (variable in objeto) {
+    code
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{for...in}
+\begin{lstlisting}[language=JavaScript]
+let prices = {"apple" : 1.25, "banana" : 2.30, "orange" : 4.5}; // Objeto
+
+for (let fruit in prices) {
+    console.log(fruit + " = " + prices[fruit]);
+}
+
+// apple = 2.30
+// banana = 2.30 
+// orange = 4.5 
+
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Funciones}
+Una \textbf{función} es una pieza de código que realiza una función determinada. Una función puede tener de 0 a múltiples parámetros de entrada, y puede devolver hasta un parámetro de salida.
+\begin{lstlisting}[language=JavaScript]
+function (entrada) {
+    code;
+    return salida;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Funciones}
+Hay multiples maneras de definir una función. Una de ellas es usando la palabra clave \textbf{function}:
+\begin{lstlisting}[language=JavaScript]
+function sumNumbers(num1, num2) {
+    let total = num1 + num2;
+    return total;
+}\end{lstlisting}
+Otra manera es asignando la funcion a una variable o constante (se recomienda que sea una constante):
+\begin{lstlisting}[language=JavaScript]
+const sumNumbers = function (num1, num2) {
+    let total = num1 + num2;
+    return total;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Funciones}
+La ultima manera de definir una funcion es usando una función flecha:
+\begin{lstlisting}[language=JavaScript]
+const sumNumbers = (num1, num2) => { 
+    let total = num1 + num2; 
+    return total;
+}\end{lstlisting}
+
+Da igual como definas la funcion, al final todas se emplean de la misma manera:
+\begin{lstlisting}[language=JavaScript]
+sumNumbers(4, 8); // 12
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Funciones: Argumentos}
+Como dije antes, una funcion puede no tener argumentos de entrada ni de salida.
+
+Si una función no tiene ningún argumento de salida, la función devuelve undefined por defecto.
+\begin{lstlisting}[language=JavaScript]
+function alertMe(){
+    alert("ALERTA!");
+}
+
+alertMe(); // "undefined"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Funciones: Argumentos}
+Si pasas mas argumentos a una función de los que necesita, esta ignorara los restantes.
+\begin{lstlisting}[language=JavaScript]
+function multiply(num1, num2){
+    return num1 * num2;
+}
+
+producto(9, 2, "patata"); // 18
+\end{lstlisting}
+
+Si pasas menos argumentos a una función de los que necesita, estos valen undefined por defecto.
+\begin{lstlisting}[language=JavaScript]
+function multiply(num1, num2){
+    return num1 * num2;
+}
+
+producto(9); // 9 * undefined = "NaN"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Funciones: Argumentos}
+En caso de que queráis tratar con un numero variable de argumentos, el objeto {\verb|arguments|} contiene todos los parametros pasados a una función, así como su orden.
+
+\begin{lstlisting}[language=JavaScript]
+function dummy(){
+    for (let argument of arguments){
+        console.log(`got arg ${argument}`);
+    }
+}
+
+dummy(3, "bomb", false, [1, "cat"]);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Web Dev 101}
+    
 \end{frame}
 \end{document}

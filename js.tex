@@ -9,6 +9,7 @@
 \usepackage{color}
 \usepackage{verbatim}
 \usepackage{inconsolata}
+\usepackage{tikz-cd}
 
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codecyan}{RGB}{0, 255, 255}
@@ -50,6 +51,7 @@ morestring=[b]`,
 \date{27 Oct 2018}
 
 \begin{document}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
 \begin{frame}
         \maketitle
 \end{frame}
@@ -714,8 +716,8 @@ for (let fruit in prices) {
     console.log(fruit + " = " + prices[fruit]);
 }
 
-// apple = 2.30
-// banana = 2.30 
+// banana = 2.30  <- Orden arbitrario
+// apple = 2.30  
 // orange = 4.5 
 
 
@@ -810,6 +812,103 @@ dummy(3, "bomb", false, [1, "cat"]);
 \end{frame}
 
 \begin{frame}{Web Dev 101}
+Antes de aplicar lo que hemos aprendido de Javascript, voy a introduciros al mundo del desarrollo web.
+
+El desarrollo web se puede dividir en dos ramas principales: backend (servidor) y frontend (cliente).
+
+Javascript puede ser utilizado tanto en backend como en frontend, pero cuando la gente piensa en una pagina web, suele pensar en el frontend.
     
+\end{frame}
+
+\begin{frame}{Web Dev 101}
+Dentro del frontend, hay tres tecnologias basicas en las que toda pagina web se basa: HTML, CSS y Javascript.
+\begin{itemize}
+    \item HTML (Hyper Text Markdown Language) es el esqueleto de una pagina web. Tanto CSS como Javascript se basan en dicho esqueleto y lo aumentan.
+    \item CSS (Cascade Style Sheets) es la piel de una pagina web. Su funcionalidad es cambiar el aspecto visual de una pagina web.
+    \item JavaScript son los musculos de una pagina web. Provee al esqueleto de funcionalidad, y sin el solo seria un cuerpo inerte.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{HTML}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/nocss.png}
+    \caption{Esta web es HTML puro.}
+\end{figure}
+\end{frame}
+
+\begin{frame}{CSS}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/css.png}
+    \caption{Esta es la misma web, pero con CSS añadido.}
+\end{figure}
+\end{frame}
+
+\begin{frame}{HTML en 3 minutos}
+HTML \textbf{no} es un lenguaje de programacion, ya que no realiza ningun tipo de logica por detras.
+
+HTML es un lenguaje de markup basado en tags (etiquetas), y cada etiqueta tiene una funcionalidad distinta. Este es un hello world:
+    
+\end{frame}
+
+\begin{frame}[fragile]{HTML en 3 minutos}
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example website</title>
+    </head>
+
+    <body>
+        <h1>Hello HoC 18!</h1>
+    </body>
+</html> 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{HTML en 3 minutos}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/helloworldhtml.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{CSS en 3 minutos}
+CSS es un lenguaje que aplica estilos a los distintos elementos de una pagina HTML.
+\begin{lstlisting}
+body {
+    background-color: red;
+}
+
+h1 {
+    text-align: center;
+    color: aqua;
+    font-size: 10em;
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{CSS en 3 minutos}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/helloworldcss.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Combinando todo}
+    Ahora que entendeis un poco el concepto de como funciona una pagina web, vamos a hacer un pequeño proyecto que combina todo.
+    
+    \centering\textbf{\hyperlink{https://jsbin.com/goqarifete/1/edit?js,console,output}{\Large jsbin.com/goqarifete?js,console,output}}
+\end{frame}
+
+\begin{frame}[fragile]{Diagrama de aprendizaje web}
+\begin{tikzcd}[column sep=tiny, row sep=large]
+HTML \arrow[d]                                          & Responsive Design                         & JQuery \arrow[d]\\
+CSS \arrow[d] \arrow[ur, "upgrade"]                     & Frontend \arrow[ur] \arrow[r] & Frameworks \arrow[r] \arrow[d] \arrow[rd] & Vue\\
+Javascript \arrow[ur] \arrow[dr] \arrow[d, "upgrade"]    &                                           & Angular                                   & React\\ 
+Asyncronous JS                                          & Backend \arrow[r]                         & Node.js\\
+\end{tikzcd}
 \end{frame}
 \end{document}

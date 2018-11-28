@@ -43,7 +43,7 @@ morestring=[b]",
 morestring=[b]`,
 }
 \lstset{style=mystyle, escapeinside=||}
-\title{Javascript}
+\title{JavaScript}
 \subtitle{Hour of Code 2018}
 
 \titlegraphic{\includegraphics[scale=0.13]{images/js_logo.png}}
@@ -59,14 +59,24 @@ morestring=[b]`,
     \setlength{\parskip}{\baselineskip}%
     \setlength{\parindent}{0pt}%
 
-\begin{frame}{Qué es Javascript}
+\begin{frame}{Presentación}
+\centering
+{\Large Carlos Gómez (@Kurolox)
+
+Pablo Valdunciel (@pabvald)\bigskip
+
+ Link a la presentación:}
+
+\centering\textbf{\hyperlink{https://github.com/Kurolox/Vue-HoC-18}{\Large github.com/Kurolox/Vue-HoC-18}}
+\end{frame}
+\begin{frame}{Qué es JavaScript}
     	\pause
-        Javascript (también llamado JS) es un lenguaje de programación originado en 1995.\pause
+        JavaScript (también llamado JS) es un lenguaje de programación originado en 1995.\pause
 
     	Es conocido principalmente por su uso en desarrollo web, permitiendo que un usuario pueda interaccionar con una pagina web.
 \end{frame}
-\begin{frame}{Qué es Javascript}
-        Javascript es un lenguaje... \bigskip
+\begin{frame}{Qué es JavaScript}
+        JavaScript es un lenguaje... \bigskip
         \begin{itemize}
             \item interpretado\pause
             \item que usa tipado débil\pause
@@ -74,30 +84,30 @@ morestring=[b]`,
     \end{itemize}
 \end{frame}
     
-\begin{frame}{Javascript es interpretado}
+\begin{frame}{JavaScript es interpretado}
         \pause
         Un lenguaje \textbf{interpretado} es aquel que es traducido a código máquina a medida que se ejecuta, mientras que un lenguaje \textbf{compilado} es aquel que se traduce a código máquina antes de ejecutarse.\pause
         \centering
         
-        Javascript es un lenguaje interpretado.
+        JavaScript es un lenguaje interpretado.
 \end{frame}
     
-\begin{frame}{Javascript usa tipado débil}
+\begin{frame}{JavaScript usa tipado débil}
         \pause
         Un lenguaje que usa \textbf{tipado débil} no necesita declarar el tipo de sus variables explícitamente, mientras que un lenguaje que usa \textbf{tipado fuerte} necesita declarar el tipo que va a almacenar una variable de antemano.\pause
         \centering
         
-        Javascript utiliza tipado débil.
+        JavaScript utiliza tipado débil.
 \end{frame}
     
     
     
-\begin{frame}{Javascript es dinámico}
+\begin{frame}{JavaScript es dinámico}
         \pause
         Un lenguaje \textbf{dinámico} comprueba los tipos durante la ejecución del programa, mientras que un lenguaje \textbf{estático} los comprueba antes de la ejecución.\pause
         \centering
         
-        Javascript es un lenguaje dinámico.
+        JavaScript es un lenguaje dinámico.
 \end{frame}
 \begin{frame}[fragile]{C: Compilado, tipado fuerte y estático}\pause
         \lstinputlisting[language=C++]{code_snippets/example.c}\centering
@@ -105,12 +115,12 @@ morestring=[b]`,
         Este programa ha de ser compilado con un compilador.
 \end{frame}
 
-\begin{frame}[fragile]{El mismo ejemplo, con Javascript}\pause
+\begin{frame}[fragile]{El mismo ejemplo, con JavaScript}\pause
         \lstinputlisting[language=JavaScript]{code_snippets/example.js}\centering
 \end{frame}
 
-\begin{frame}{Cómo ejecutar Javascript}\pause
-    Hay varias maneras de ejecutar Javascript. La mas accesible es desde vuestro navegador de preferencia (Firefox, Chrome...)\pause
+\begin{frame}{Cómo ejecutar JavaScript}\pause
+    Hay varias maneras de ejecutar JavaScript. La mas accesible es desde vuestro navegador de preferencia (Firefox, Chrome...)\pause
     
     Abrid las herramientas de desarrollador (F12), y buscad la opción de consola.
     \begin{figure}
@@ -119,16 +129,16 @@ morestring=[b]`,
     \end{figure}
 \end{frame}
 
-\begin{frame}{Como ejecutar Javascript}
-Para este taller, vamos a utilizar JS Bin, un editor online de Javascript.
+\begin{frame}{Como ejecutar JavaScript}
+Para este taller, vamos a utilizar JS Bin, un editor online de JavaScript.
     
 \centering\url{https://jsbin.com/?js,console}
 \end{frame}
 
 \begin{frame}{ECMAScript}
-Antes de empezar con Javascript, deberíais saber esto...
+Antes de empezar con JavaScript, deberíais saber esto...
 
-ECMAScript es un estándar de lenguajes de programación, y Javascript es una implementación de dicho estándar.
+ECMAScript es un estándar de lenguajes de programación, y JavaScript es una implementación de dicho estándar.
 
 ECMAScript se va actualizando con el tiempo con nuevas funcionalidades, y versiones antiguas de algunos navegadores pueden no estar actualizadas para soportar nuevas versiones de ECMAScript.
 \end{frame}
@@ -171,7 +181,7 @@ Intentar hacer cualquiera de estas cosas a una constante va a resultar en un err
 \end{frame}
 
 \begin{frame}{Tipos de datos}
-En Javascript, tenemos los siguientes tipos de datos:\bigskip
+En JavaScript, tenemos los siguientes tipos de datos:\bigskip
 
 \begin{columns}[t, onlytextwidth]
             \column{0.5\textwidth}
@@ -198,7 +208,7 @@ Un \textbf{number} (Numero) es un tipo de dato numérico.
 
 A diferencia de otros lenguajes, no hay distintos tipos dependiendo de si el numero es decimal o no, o de cuanto espacio se quiera reservar (short, int, long, double, float...)
 
-En Javascript, solo hay un único tipo, number. Este es similar a un double en otros lenguajes de programación (64 bits, punto flotante)
+En JavaScript, solo hay un único tipo, number. Este es similar a un double en otros lenguajes de programación (64 bits, punto flotante)
 \end{frame}
 
 \begin{frame}[fragile]{Numbers}
@@ -238,11 +248,11 @@ let divisionByTomato = 4 / "tomato";|\pause| // "NaN"
 \end{frame}
 
 \begin{frame}{Numbers: Casos especiales}
-NaN es un número especial. Como habréis notado, Javascript no suele devolver errores ante casos extraños.
+NaN es un número especial. Como habréis notado, JavaScript no suele devolver errores ante casos extraños.
 
-Ya entraremos en detalle acerca de como Javascript maneja estos casos, pero por ahora centrémonos en NaN.\pause
+Ya entraremos en detalle acerca de como JavaScript maneja estos casos, pero por ahora centrémonos en NaN.\pause
 
-NaN (Not a Number; No es un número) es un valor numérico que Javascript devuelve siempre que no encuentre un valor legal en una operación aritmética (como una string, con excepciones que ya mencionaremos)
+NaN (Not a Number; No es un número) es un valor numérico que JavaScript devuelve siempre que no encuentre un valor legal en una operación aritmética (como una string, con excepciones que ya mencionaremos)
 \end{frame}
 
 \begin{frame}[fragile]{Numbers: Operaciones}
@@ -284,7 +294,7 @@ let someOperation = 46 + (38 % NaN) * 27; // NaN
 \end{frame}
 
 \begin{frame}[fragile]{Numbers: Punto flotante}
-Recordad que en Javascript, \textbf{todos} los números son de punto flotante. Esto puede dar lugar a imprecisiones, y debéis de tener cuidado con estas.
+Recordad que en JavaScript, \textbf{todos} los números son de punto flotante. Esto puede dar lugar a imprecisiones, y debéis de tener cuidado con estas.
 
 \begin{lstlisting}[language=JavaScript]
 0.1 + 0.2; // 0.30000000000000004
@@ -404,7 +414,7 @@ Hay varios operadores booleanos: los operadores de comparación. Estos operadore
 \end{frame}
 
 \begin{frame}[fragile]{Boolean: Operadores booleanos}
-Javascript hace varias conversiones de tipos por detrás cuando trabajas con tipos distintos.
+JavaScript hace varias conversiones de tipos por detrás cuando trabajas con tipos distintos.
 \begin{lstlisting}[language=JavaScript]
 3 > "5" // 3 > 5, false
 4 == "4" // 4 == 4, true
@@ -465,7 +475,7 @@ null y undefined son dos cosas distintas, pese a parecer idénticas. Aquí tené
 \end{frame}
 
 \begin{frame}[fragile]{Conversiones implícitas}
-Javascript hace conversiones entre tipos por detrás cuando trabajas con tipos distintos.
+JavaScript hace conversiones entre tipos por detrás cuando trabajas con tipos distintos.
 
 \begin{lstlisting}[language=JavaScript]
 1 + "10" // "110"
@@ -547,7 +557,7 @@ someArray[3]; // true
 
 
 \begin{frame}{Estructuras de control}
-Javascript tiene las siguientes estructuras de control.
+JavaScript tiene las siguientes estructuras de control.
 \begin{itemize}
     \item if / else if / else
     \item while / do while
@@ -812,18 +822,18 @@ dummy(3, "bomb", false, [1, "cat"]);
 \end{frame}
 
 \begin{frame}{Web Dev 101}
-Antes de aplicar lo que hemos aprendido de Javascript, voy a introduciros al mundo del desarrollo web.
+Antes de aplicar lo que hemos aprendido de JavaScript, voy a introduciros al mundo del desarrollo web.
 
 El desarrollo web se puede dividir en dos ramas principales: backend (servidor) y frontend (cliente).
 
-Javascript puede ser utilizado tanto en backend como en frontend, pero cuando la gente piensa en una pagina web, suele pensar en el frontend.
+JavaScript puede ser utilizado tanto en backend como en frontend, pero cuando la gente piensa en una pagina web, suele pensar en el frontend.
     
 \end{frame}
 
 \begin{frame}{Web Dev 101}
-Dentro del frontend, hay tres tecnologías básicas en las que toda pagina web se basa: HTML, CSS y Javascript.
+Dentro del frontend, hay tres tecnologías básicas en las que toda pagina web se basa: HTML, CSS y JavaScript.
 \begin{itemize}
-    \item HTML (Hyper Text Markdown Language) es el esqueleto de una pagina web. Tanto CSS como Javascript se basan en dicho esqueleto y lo aumentan.
+    \item HTML (Hyper Text Markdown Language) es el esqueleto de una pagina web. Tanto CSS como JavaScript se basan en dicho esqueleto y lo aumentan.
     \item CSS (Cascade Style Sheets) es la piel de una pagina web. Su funcionalidad es cambiar el aspecto visual de una pagina web.
     \item JavaScript son los músculos de una pagina web. Provee al esqueleto de funcionalidad, y sin el solo seria un cuerpo inerte.
 \end{itemize}
@@ -909,13 +919,13 @@ Aquí tenéis un diagrama de que tecnologías aprender si queréis introduciros 
 \begin{tikzcd}[column sep=tiny]
 HTML \arrow[d]                                          & Responsive Design                         & JQuery \arrow[d]\\
 CSS \arrow[d] \arrow[ur, "upgrade"]                     & Frontend \arrow[ur] \arrow[r] & EscogeUnFramework \arrow[ld] \arrow[d] \arrow[rd]\\
-Javascript \arrow[ur] \arrow[dr] \arrow[d, "upgrade"]    & React                                          & Angular                                   & Vue\\ 
+JavaScript \arrow[ur] \arrow[dr] \arrow[d, "upgrade"]    & React                                          & Angular                                   & Vue\\ 
 Asyncronous JS                                          & Backend \arrow[r]                         & Node.js\\
 \end{tikzcd}
 \end{frame}
 
 \begin{frame}{TypeScript}
-TypeScript es un superset de Javascript (por lo que todo código de Javascript funciona en TypeScript), el cual añade múltiples mejoras a este, como:
+TypeScript es un superset de JavaScript (por lo que todo código de JavaScript funciona en TypeScript), el cual añade múltiples mejoras a este, como:
 \begin{itemize}
     \item Tipado estático opcional
     \item Clases
@@ -925,7 +935,7 @@ TypeScript es un superset de Javascript (por lo que todo código de Javascript f
 \end{frame}
 
 \begin{frame}[fragile]{TypeScript: Tipado estático}
-Tenemos este codigo en Javascript:
+Tenemos este codigo en JavaScript:
 \begin{lstlisting}[language=JavaScript]
 function sum(num1, num2){
     return num1 + num2;
@@ -949,7 +959,7 @@ sum("potato", false) // error TS2345: Argument of type 'string' is not assignabl
 \end{frame}
 
 \begin{frame}[fragile]{Typescript: Clases}
-TypeScript también introduce clases en Javascript, las cuales son como un prototipo de objeto.
+TypeScript también introduce clases en JavaScript, las cuales son como un prototipo de objeto.
 
 \begin{lstlisting}[language=JavaScript]
 class Person {
